@@ -33,21 +33,22 @@ function [firstTime,secondErrors,thirdRAM] = solveMatrix(varargin)
     allMems=[];
 
     %Carico le 8 matrici FEMLAB nel cellArray
-    load('C:\Users\Nico\Dropbox\ProgettoMETODI\SparseMatrices_fullMAT\ns3Da.mat')
+    cd(pwd)
+    load('..\matrices\StructMat\ns3Da.mat')
     matrices{1,1} = Problem.A;    
-    load('C:\Users\Nico\Dropbox\ProgettoMETODI\SparseMatrices_fullMAT\poisson2D.mat')
+    load('..\matrices\StructMat\poisson2D.mat')
     matrices{1,2} = Problem.A;    
-    load('C:\Users\Nico\Dropbox\ProgettoMETODI\SparseMatrices_fullMAT\poisson3Da.mat')
+    load('..\matrices\poisson3Da.mat')
     matrices{1,3} = Problem.A;     
-    load('C:\Users\Nico\Dropbox\ProgettoMETODI\SparseMatrices_fullMAT\poisson3Db.mat')
+    load('..\matrices\poisson3Db.mat')
     matrices{1,4} = Problem.A;     
-    load('C:\Users\Nico\Dropbox\ProgettoMETODI\SparseMatrices_fullMAT\problem1.mat')
+    load('..\matrices\problem1.mat')
     matrices{1,5} = Problem.A;     
-    load('C:\Users\Nico\Dropbox\ProgettoMETODI\SparseMatrices_fullMAT\sme3Da.mat')
+    load('..\matrices\sme3Da.mat')
     matrices{1,6} = Problem.A;     
-    load('C:\Users\Nico\Dropbox\ProgettoMETODI\SparseMatrices_fullMAT\sme3Db.mat')
+    load('..\matrices\sme3Db.mat')
     matrices{1,7} = Problem.A;    
-    load('C:\Users\Nico\Dropbox\ProgettoMETODI\SparseMatrices_fullMAT\sme3Dc.mat')
+    load('..\matrices\sme3Dc.mat')
     matrices{1,8} = Problem.A; 
     
     %Matrici in input (se ce ne sono)
@@ -65,7 +66,7 @@ function [firstTime,secondErrors,thirdRAM] = solveMatrix(varargin)
     else
 	%Computazione interna delle matrici
 		[allMems,allTimes,allErrors,allSizes] = internalComputation(matrices,allMems,allTimes,allErrors,allSizes);
-	end
+    end
     
     %Creo matrici contenenti i valori dei 3 grafici, ordinando in modo
     %crescente in base alla prima colonna (cioè la dimensione della matrice)
