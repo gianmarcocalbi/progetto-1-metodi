@@ -24,7 +24,7 @@
 function [firstTime,secondErrors,thirdRAM] = solveMatrix(varargin) 
      
     %Creo cellArray
-    matrices = cell(1,8);
+    matrices = [];
     
     %Array per i risultati
     allTimes=[];
@@ -34,29 +34,20 @@ function [firstTime,secondErrors,thirdRAM] = solveMatrix(varargin)
 
     %Carico le 8 matrici FEMLAB nel cellArray
     cd(pwd)
-    load('..\matrices\StructMat\ns3Da.mat')
-    matrices{1,1} = Problem.A;    
-    load('..\matrices\StructMat\poisson2D.mat')
-    matrices{1,2} = Problem.A;    
-    load('..\matrices\StructMat\poisson3Da.mat')
-    matrices{1,3} = Problem.A;     
-    load('..\matrices\StructMat\poisson3Db.mat')
-    matrices{1,4} = Problem.A;     
-    load('..\matrices\StructMat\problem1.mat')
-    matrices{1,5} = Problem.A;     
-    load('..\matrices\StructMat\sme3Da.mat')
-    matrices{1,6} = Problem.A;     
-    load('..\matrices\StructMat\sme3Db.mat')
-    matrices{1,7} = Problem.A;    
-    load('..\matrices\StructMat\sme3Dc.mat')
-    matrices{1,8} = Problem.A; 
+    matrices = [matrices; load('progetto-1-metodi\matrices\mat\one20414.mat')]; 
+    matrices = [matrices; load('progetto-1-metodi\matrices\mat\two367.mat')];
+    matrices = [matrices; load('progetto-1-metodi\matrices\mat\three13514.mat')];
+    matrices = [matrices; load('progetto-1-metodi\matrices\mat\four85623.mat')];
+    matrices = [matrices; load('progetto-1-metodi\matrices\mat\five415.mat')];
+    matrices = [matrices; load('progetto-1-metodi\matrices\mat\six12504.mat')];
+    matrices = [matrices; load('progetto-1-metodi\matrices\mat\seven29067.mat')];
+    matrices = [matrices; load('progetto-1-metodi\matrices\mat\eigth42930.mat')];
     
     %Matrici in input (se ce ne sono)
     if(nargin>0)
-        inputMatrices = cell(1,nargin);
+        inputMatrices = [];
         for ll=1 : nargin            
-            load(varargin{ll});
-            inputMatrices{1,ll} = Problem.A;
+            inputMatrices = [inputMatrices ; load(varargin{ll})];
         end
     end
        

@@ -13,14 +13,14 @@ function solveMatrix(x...)
   allMems = []
 
   #Carico le matrici FEMLAB nel cellArray
-  matrices[1] = MatrixMarket.mmread("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\SparseMatrices-MM\\ns3Da.mtx")
-  matrices[2] = MatrixMarket.mmread("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\SparseMatrices-MM\\poisson2D.mtx")
-  matrices[3] = MatrixMarket.mmread("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\SparseMatrices-MM\\poisson3Da.mtx")
-  matrices[4] = MatrixMarket.mmread("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\SparseMatrices-MM\\poisson3Db.mtx")
-  matrices[5] = MatrixMarket.mmread("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\SparseMatrices-MM\\problem1.mtx")
-  matrices[6] = MatrixMarket.mmread("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\SparseMatrices-MM\\sme3Da.mtx")
-  matrices[7] = MatrixMarket.mmread("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\SparseMatrices-MM\\sme3Db.mtx")
-  matrices[8] = MatrixMarket.mmread("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\SparseMatrices-MM\\sme3Dc.mtx")
+  matrices[1] = MatrixMarket.mmread("../matrices/mtx/ns3Da.mtx")
+  matrices[2] = MatrixMarket.mmread("../matrices/mtx/poisson2D.mtx")
+  matrices[3] = MatrixMarket.mmread("../matrices/mtx/poisson3Da.mtx")
+  matrices[4] = MatrixMarket.mmread("../matrices/mtx/poisson3Db.mtx")
+  matrices[5] = MatrixMarket.mmread("../matrices/mtx/problem1.mtx")
+  matrices[6] = MatrixMarket.mmread("../matrices/mtx/sme3Da.mtx")
+  matrices[7] = MatrixMarket.mmread("../matrices/mtx/sme3Db.mtx")
+  matrices[8] = MatrixMarket.mmread("../matrices/mtx/sme3Dc.mtx")
 
   #Calcola quanti parametri in input ci sono
   howManyOptional = length(x)

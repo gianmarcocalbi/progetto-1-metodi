@@ -1,15 +1,14 @@
 function [allMems,allTimes,allErrors,allSizes] = internalComputation(matrix,allMems,allTimes,allErrors,allSizes)
     
     %Per ogni matrice presente nel cellArray svolgo i calcoli richiesti
-    for i=1 : size(matrix,2)
+    for i=1 : size(matrix,1)
         
         %Memoria usata da MATLAB all'inizio del programma
         user = memory;
         user = user.MemUsedMATLAB;
 
         %Estraggo matrice corrente
-        A = matrix(1,i);
-        A = A{1};
+        A = matrix(i).A;
         
         %Salvo la soluzione esatta xe del sistema
         xe = ones(size(A,1),1);
