@@ -38,17 +38,17 @@ function [firstTime,secondErrors,thirdRAM] = solveMatrix(varargin)
     matrices{1,1} = Problem.A;    
     load('..\matrices\StructMat\poisson2D.mat')
     matrices{1,2} = Problem.A;    
-    load('..\matrices\poisson3Da.mat')
+    load('..\matrices\StructMat\poisson3Da.mat')
     matrices{1,3} = Problem.A;     
-    load('..\matrices\poisson3Db.mat')
+    load('..\matrices\StructMat\poisson3Db.mat')
     matrices{1,4} = Problem.A;     
-    load('..\matrices\problem1.mat')
+    load('..\matrices\StructMat\problem1.mat')
     matrices{1,5} = Problem.A;     
-    load('..\matrices\sme3Da.mat')
+    load('..\matrices\StructMat\sme3Da.mat')
     matrices{1,6} = Problem.A;     
-    load('..\matrices\sme3Db.mat')
+    load('..\matrices\StructMat\sme3Db.mat')
     matrices{1,7} = Problem.A;    
-    load('..\matrices\sme3Dc.mat')
+    load('..\matrices\StructMat\sme3Dc.mat')
     matrices{1,8} = Problem.A; 
     
     %Matrici in input (se ce ne sono)
