@@ -1,6 +1,7 @@
 def solve(*args):
     import scipy.io   
     import pylab
+    import os
     
     #Array dei risultati
     firstTime = []
@@ -8,22 +9,23 @@ def solve(*args):
     thirdRAM = []
             
     #Importa tutti i file MTX e le relative info
-    mat1 = scipy.io.mmread('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/ns3Da.mtx')
-    mat1info = scipy.io.mminfo('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/ns3Da.mtx')
-    mat2 = scipy.io.mmread('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/poisson2D.mtx')
-    mat2info = scipy.io.mminfo('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/ns3Da.mtx')
-    mat3 = scipy.io.mmread('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/poisson3Da.mtx')
-    mat3info = scipy.io.mminfo('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/ns3Da.mtx')
-    mat4 = scipy.io.mmread('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/poisson3Db.mtx')
-    mat4info = scipy.io.mminfo('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/ns3Da.mtx')
-    mat5 = scipy.io.mmread('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/problem1.mtx')
-    mat5info = scipy.io.mminfo('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/ns3Da.mtx')
-    mat6 = scipy.io.mmread('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/sme3Da.mtx')
-    mat6info = scipy.io.mminfo('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/ns3Da.mtx')
-    mat7 = scipy.io.mmread('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/sme3Db.mtx')
-    mat7info = scipy.io.mminfo('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/ns3Da.mtx')
-    mat8 = scipy.io.mmread('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/sme3Dc.mtx')
-    mat8info = scipy.io.mminfo('C:/Users/Nico/Dropbox/ProgettoMETODI/SparseMatrices-MM/ns3Da.mtx')
+    os.chdir
+    mat1 = scipy.io.mmread('../SparseMatrices-MM/ns3Da.mtx')
+    mat1info = scipy.io.mminfo('../SparseMatrices-MM/ns3Da.mtx')
+    mat2 = scipy.io.mmread('../SparseMatrices-MM/poisson2D.mtx')
+    mat2info = scipy.io.mminfo('../SparseMatrices-MM/ns3Da.mtx')
+    mat3 = scipy.io.mmread('../SparseMatrices-MM/poisson3Da.mtx')
+    mat3info = scipy.io.mminfo('../SparseMatrices-MM/ns3Da.mtx')
+    mat4 = scipy.io.mmread('../SparseMatrices-MM/poisson3Db.mtx')
+    mat4info = scipy.io.mminfo('../SparseMatrices-MM/ns3Da.mtx')
+    mat5 = scipy.io.mmread('../SparseMatrices-MM/problem1.mtx')
+    mat5info = scipy.io.mminfo('../SparseMatrices-MM/ns3Da.mtx')
+    mat6 = scipy.io.mmread('../SparseMatrices-MM/sme3Da.mtx')
+    mat6info = scipy.io.mminfo('../SparseMatrices-MM/ns3Da.mtx')
+    mat7 = scipy.io.mmread('../SparseMatrices-MM/sme3Db.mtx')
+    mat7info = scipy.io.mminfo('../SparseMatrices-MM/ns3Da.mtx')
+    mat8 = scipy.io.mmread('../SparseMatrices-MM/sme3Dc.mtx')
+    mat8info = scipy.io.mminfo('../SparseMatrices-MM/ns3Da.mtx')
        
     #Lista di matrici
     matrices = [mat1,mat2,mat3,mat4,mat5,mat6,mat7,mat8]
@@ -91,8 +93,6 @@ def mainComput(matrices,matricesInfos,firstTime,secondErrors,thirdRAM):
         #Ottengo matrice i-esima
         print(matrices[i])
         print(matrices[i][0])
-        print(matrices[i][1])
-        print(matrices[i][2])
         sizeM = matricesInfos[i][0]
         print(sizeM)
         A = numpy.zeros((sizeM,sizeM))
