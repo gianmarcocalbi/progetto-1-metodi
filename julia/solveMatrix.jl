@@ -1,6 +1,7 @@
 using MatrixMarket
 using SuiteSparse
 using BenchmarkTools
+using MAT
 function solveMatrix(x...)
 
     #Creo cellArray
@@ -13,14 +14,23 @@ function solveMatrix(x...)
     allMems = []
 
     #Carico le matrici FEMLAB nel cellArray
-    matrices[1] = MatrixMarket.mmread("../matrices/mtx/ns3Da.mtx")
-    matrices[2] = MatrixMarket.mmread("../matrices/mtx/poisson2D.mtx")
-    matrices[3] = MatrixMarket.mmread("../matrices/mtx/poisson3Da.mtx")
-    matrices[4] = MatrixMarket.mmread("../matrices/mtx/poisson3Db.mtx")
-    matrices[5] = MatrixMarket.mmread("../matrices/mtx/problem1.mtx")
-    matrices[6] = MatrixMarket.mmread("../matrices/mtx/sme3Da.mtx")
-    matrices[7] = MatrixMarket.mmread("../matrices/mtx/sme3Db.mtx")
-    matrices[8] = MatrixMarket.mmread("../matrices/mtx/sme3Dc.mtx")
+    print("Loading data...")
+    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\one20414.mat")
+    matrices[1] = openedMat["A"]
+    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\two367.mat")
+    matrices[2] = openedMat["A"]
+    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\three13514.mat")
+    matrices[3] = openedMat["A"]
+    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\four85623.mat")
+    matrices[4] = openedMat["A"]
+    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\five415.mat")
+    matrices[5] = openedMat["A"]
+    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\six12504.mat")
+    matrices[6] = openedMat["A"]
+    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\seven29067.mat")
+    matrices[7] = openedMat["A"]
+    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\eigth42930.mat")
+    matrices[8] = openedMat["A"]
 
     #Calcola quanti parametri in input ci sono
     howManyOptional = length(x)
@@ -29,14 +39,17 @@ function solveMatrix(x...)
     if howManyOptional>0
         inputMatrices = Array{Any}(howManyOptional)
         for ll=1 : howManyOptional
-            inputMatrices[ll] = MatrixMarket.mmread(x[ll])
+            openedMat = matopen(x[ll])
+            inputMatrices[ll] = openedMat["A"]
         end
     end
 
     #Codice da eseguire se ci sono matrici in input
     if (howManyOptional>0)
+        print("\nProcessing input matrices...")
         (allMems, allTimes, allErrors, allSizes) = interCalc(inputMatrices, allMems, allTimes, allErrors, allSizes)
     else
+        print("\nProcessing FEMLAB matrices...")
         (allMems, allTimes, allErrors, allSizes) = interCalc(matrices, allMems, allTimes, allErrors, allSizes)
     end
 
@@ -49,6 +62,7 @@ function solveMatrix(x...)
 
     #Creo matrici contenti i valori dei grafici
     #Ordino anche in modo crescento rispetto alla size
+    print("Collecting results...")
     firstTime = [allSizes ; allTimes];
     firstTime = reshape(firstTime,numDiMatrici,2);
     firstTimeSor = sortrows(firstTime,by=y->(y[1]))
@@ -95,8 +109,7 @@ function interCalc(matrices, allMems, allTimes, allErrors, allSizes)
         profiling = @timed(matrices[o]\b);
         profiling = profiling[3];
         x = matrices[o]\b;
-        print(size(matrices[o],1));
-        print("fatto\n");
+        print("Processing matrix ",size(matrices[o],1));
 
         #Errore relativo
         errRel = norm(x-xe)/norm(xe);
