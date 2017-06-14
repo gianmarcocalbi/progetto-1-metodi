@@ -104,6 +104,7 @@ function interCalc(matrices, allMems, allTimes, allErrors, allSizes)
 
         #Calcolo del right hand side
         b = matrices[o]*xe;
+		matrices[o] = lufact(matrices[o]);
 
         #Risoluzione
         profiling = @timed(matrices[o]\b);
