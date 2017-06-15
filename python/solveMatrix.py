@@ -1,10 +1,3 @@
-'''
-Created on 18 April 2017
-Project: solveMatrix
-Class: Metodi del calcolo scientifico
-@author: Nico
-'''
-    
 def solve(*args):
     import scipy.io   
     import pylab

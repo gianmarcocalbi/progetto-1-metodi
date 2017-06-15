@@ -1,26 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Si applicherà il metodo di risoluzione di Gauss per trovare la soluzione 
-% di un sistema lineare Ax=b, in cui A è una matrice sparsa.
-% La funzione solveMatrix può prendere in input un numero generico di
-% parametri:
-
-% VARARGIN = stringhe separate da una virgola indicanti il PATH del file
-%            .mat che si vuole computare.
-%
-% PATH = 'C:\Users\Nico\Dropbox\ProgettoMETODI\SparseMatrices_fullMAT\name.mat'.
-
-% I file .MAT accettabili dall'algoritmo sono quelli scaricati dal sito del
-% gruppo FEMLAB. Questi tipi di file sono degli STRUCT contenenti le
-% matrici più altri valori. 
-% Passare come input le singole matrici porta ad un errore di computazione.
-
-% OUTPUT = i risultati ottenuti (sia per quanto riguarda la RAM, il tempo 
-% 			e l'errore relativo) vengono ordinati in maniera crescente rispetto
-%			alla dimensione della matrice e succssivamente vengono plottati
-%			3 grafici
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 function [firstTime,secondErrors,thirdRAM] = solveMatrix(varargin) 
      
     %Creo cellArray
