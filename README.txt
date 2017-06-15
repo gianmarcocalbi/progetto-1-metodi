@@ -83,7 +83,7 @@ di risultati (p=times, t=errors, s=allocatedRAM).
 Per visualizzare i grafici  risultanti eseguire i seguenti step:
 1. Installare il package "Gadfly" da linea di comando ed includerlo (using Gadfly)
 2. Visualizzare graficamente le tempistiche, lanciando l'istruzione:
-	plot(x=p[:,1], y=p[:,2], Guide.xlabel("Size"), Guide.ylabel("Time"), Geom.point, Geom.line)
+	plot(x=p[:,1], y=p[:,2], Guide.xlabel("Size"), Guide.ylabel("Time seconds"), Geom.point, Geom.line)
 3. Visualizzare graficamente gli errori relativi, lanciando l'istruzione:
 	plot(x=s[:,1], y=s[:,2], Guide.xlabel("Size"), Guide.ylabel("Errore relativo"), Geom.point, Geom.line, Scale.y_log10)
 4. Visualizzare graficamente i byte allocati, lanciando l'istruzione:

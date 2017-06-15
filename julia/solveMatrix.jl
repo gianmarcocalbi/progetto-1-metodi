@@ -67,19 +67,16 @@ function solveMatrix(x...)
     firstTime = reshape(firstTime,numDiMatrici,2);
     firstTimeSor = sortrows(firstTime,by=y->(y[1]))
     firstTimeSor = reshape(firstTimeSor,numDiMatrici,2);
-    #writedlm("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\solveMatrix_Julia\\tempistiche.txt", firstTimeSor, ',');
 
     secondErrors = [allSizes ; allErrors];
     secondErrors = reshape(secondErrors,numDiMatrici,2);
     secondErrorsSor = sortrows(secondErrors,by=y->(y[1]))
     secondErrorsSor = reshape(secondErrorsSor,numDiMatrici,2);
-    #writedlm("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\solveMatrix_Julia\\errori.txt", secondErrorsSor, ',');
 
     thirdRAM = [allSizes ; allMems];
     thirdRAM = reshape(thirdRAM,numDiMatrici,2);
     thirdRAMSor = sortrows(thirdRAM,by=y->(y[1]));
     thirdRAMSor = reshape(thirdRAMSor,numDiMatrici,2);
-    #writedlm("C:\\Users\\Nico\\Dropbox\\ProgettoMETODI\\solveMatrix_Julia\\allocatedBytes.txt", thirdRAMSor, ',');
 
     return firstTimeSor, secondErrorsSor, thirdRAMSor;
 
@@ -96,7 +93,7 @@ end
 
 function interCalc(matrices, allMems, allTimes, allErrors, allSizes)
      for o=1 : size(matrices,1)
-        gc(); workspace();
+        #gc(); workspace();
         tic();
 
         #Salvo la soluzione esatta xe del sistema

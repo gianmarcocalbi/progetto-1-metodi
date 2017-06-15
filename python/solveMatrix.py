@@ -67,14 +67,14 @@ def solve(*args):
     print("\nPlotting results...")
     pylab.figure(1)
     pylab.title('Size and elapsed time')
-    pylab.xlabel('Matrix dimension')
-    pylab.ylabel('Time - seconds')
+    pylab.xlabel('Matrix size (rows)')
+    pylab.ylabel('Time (seconds)')
     pylab.plot([i[0] for i in firstTime], [j[1] for j in firstTime], marker='.', alpha=1, color='b')
     
     #calcolo secondo grafico
     pylab.figure(2)
     pylab.title('Size and errors - logarithmic scale')
-    pylab.xlabel('Matrix dimension')
+    pylab.xlabel('Matrix size (rows)')
     pylab.ylabel('Relative error')	
     pylab.plot([i[0] for i in secondErrors], [j[1] for j in secondErrors], marker='.', alpha=1, color='b')
     pylab.yscale('log')
@@ -82,8 +82,8 @@ def solve(*args):
     #Calcolo terzo grafico
     pylab.figure(3)
     pylab.title('Size and RAM')
-    pylab.xlabel('Matrix dimension')
-    pylab.ylabel('RAM usage (K)')
+    pylab.xlabel('Matrix size (rows)')
+    pylab.ylabel('RAM usage (Bytes)')
     pylab.plot([i[0] for i in thirdRAM], [j[1] for j in thirdRAM], marker='.', alpha=1, color='b')
     
     #Stampo tutti i grafici
@@ -107,8 +107,7 @@ def mainComput(matrix,firstTime,secondErrors,thirdRAM):
         print('Processing matrix n',i+1,', size',sizeM)
         sizeM = sizeM[0]
         
-        #Memoria RAM usata da python e tempo attuale
-        ts = time.time()
+        #Memoria RAM usata da python e tempo attuale       
         process = psutil.Process(os.getpid())    
         firstRAM = process.memory_info().rss
         
@@ -118,7 +117,8 @@ def mainComput(matrix,firstTime,secondErrors,thirdRAM):
         #Calcolo right-hand side
         b = A * xe
         
-        #Calcolo matrice e tempo di calcolo   
+        #Calcolo matrice e tempo di calcolo  
+        ts = time.time() 
         lu = splu(A)     
         x = spsolve(A, b)
         te = time.time()

@@ -71,22 +71,22 @@ function [firstTime,secondErrors,thirdRAM] = solveMatrix(varargin)
     %Grafici da plottare con titoli e punti
     plot(firstTime(:,1),firstTime(:,2));
     title('Size and elapsed time');
-    xlabel('Matrix dimension');
-    ylabel('Time (sec)');
+    xlabel('Matrix size (rows)');
+    ylabel('Time (seconds)');
     hold on
     scatter(firstTime(:,1),firstTime(:,2),'.');
     
     figure, loglog(secondErrors(:,1),secondErrors(:,2));
     title('Size and errors - logarithmic scale');
-    xlabel('Matrix dimension');
+    xlabel('Matrix size (rows)');
     ylabel('Error');
     hold on
     scatter(secondErrors(:,1),secondErrors(:,2),'.');
     
     figure, plot(thirdRAM(:,1),thirdRAM(:,2));
     title('Size and RAM');
-    xlabel('Matrix dimension');
-    ylabel('RAM used (K)');
+    xlabel('Matrix size (rows)');
+    ylabel('RAM used (bytes)');
     hold on
     scatter(thirdRAM(:,1),thirdRAM(:,2),'.');
 end
