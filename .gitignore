@@ -103,3 +103,4 @@ ENV/
 #Intellij
 *.iml
 .idea/
+/progetto-1-metodi.iml

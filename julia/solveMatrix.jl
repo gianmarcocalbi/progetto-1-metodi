@@ -82,15 +82,6 @@ function solveMatrix(x...)
 
 end
 
-
-
-
-
-
-
-
-
-
 function interCalc(matrices, allMems, allTimes, allErrors, allSizes)
      for o=1 : size(matrices,1)
         #gc(); workspace();

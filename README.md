@@ -65,14 +65,16 @@ di risultati `(p=times, t=errors, s=allocatedRAM)`.
 Per visualizzare i grafici  risultanti eseguire i seguenti step:
 1. Installare il package "_Gadfly_" dalla shell di Julia con il comando `Pkg.add("Gadfly")` ed includerlo con il comando `using Gadfly`.
 2. Visualizzare graficamente le tempistiche, lanciando l'istruzione:
-	plot(x=p[:,1], y=p[:,2], Guide.xlabel("Size"), Guide.ylabel("Time seconds"), Geom.point, Geom.line)
+	```
+	plot(x=p[:,1], y=p[:,2], Guide.xlabel("Matrix size (rows)"), Guide.ylabel("Time (seconds)"), Geom.point, Geom.line)
+	```
 3. Visualizzare graficamente gli errori relativi, lanciando l'istruzione:
 	```
-	plot(x=s[:,1], y=s[:,2], Guide.xlabel("Size"), Guide.ylabel("Errore relativo"), Geom.point, Geom.line, Scale.y_log10)
+	plot(x=s[:,1], y=s[:,2], Guide.xlabel("Matrix size (rows)"), Guide.ylabel("Relative error"), Geom.point, Geom.line, Scale.y_log10)
 	```
 4. Visualizzare graficamente i byte allocati, lanciando l'istruzione:
 	```
-	plot(x=t[:,1], y=t[:,2], Guide.xlabel("Size"), Guide.ylabel("Allocated Bytes"), Geom.point, Geom.line)
+	plot(x=t[:,1], y=t[:,2], Guide.xlabel("Matrix size (rows)"), Guide.ylabel("RAM Usage (Bytes)"), Geom.point, Geom.line)
 	```
 
 La funzione `solveMatrix()` chiamerà la funzione `interCalc()` che si 

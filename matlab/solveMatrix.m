@@ -11,14 +11,14 @@ function [firstTime,secondErrors,thirdRAM] = solveMatrix(varargin)
 
     %Carico le 8 matrici FEMLAB nel cellArray
     cd(pwd)
-    matrices = [matrices; load('progetto-1-metodi\matrices\mat\one20414.mat')]; 
-    matrices = [matrices; load('progetto-1-metodi\matrices\mat\two367.mat')];
-    matrices = [matrices; load('progetto-1-metodi\matrices\mat\three13514.mat')];
-    matrices = [matrices; load('progetto-1-metodi\matrices\mat\four85623.mat')];
-    matrices = [matrices; load('progetto-1-metodi\matrices\mat\five415.mat')];
-    matrices = [matrices; load('progetto-1-metodi\matrices\mat\six12504.mat')];
-    matrices = [matrices; load('progetto-1-metodi\matrices\mat\seven29067.mat')];
-    matrices = [matrices; load('progetto-1-metodi\matrices\mat\eigth42930.mat')];
+    matrices = [matrices; load('progetto-1-metodi/matrices/mat/one20414.mat')]; 
+    matrices = [matrices; load('progetto-1-metodi/matrices/mat/two367.mat')];
+    matrices = [matrices; load('progetto-1-metodi/matrices/mat/three13514.mat')];
+    matrices = [matrices; load('progetto-1-metodi/matrices/mat/four85623.mat')];
+    matrices = [matrices; load('progetto-1-metodi/matrices/mat/five415.mat')];
+    matrices = [matrices; load('progetto-1-metodi/matrices/mat/six12504.mat')];
+    matrices = [matrices; load('progetto-1-metodi/matrices/mat/seven29067.mat')];
+    matrices = [matrices; load('progetto-1-metodi/matrices/mat/eigth42930.mat')];
     
     %Matrici in input (se ce ne sono)
     if(nargin>0)
@@ -37,7 +37,7 @@ function [firstTime,secondErrors,thirdRAM] = solveMatrix(varargin)
     end
     
     %Creo matrici contenenti i valori dei 3 grafici, ordinando in modo
-    %crescente in base alla prima colonna (cioè la dimensione della matrice)
+    %crescente in base alla prima colonna (cioï¿½ la dimensione della matrice)
     firstTime = [allSizes,allTimes];
     firstTime = sortrows(firstTime,1);
     secondErrors = [allSizes,allErrors];
