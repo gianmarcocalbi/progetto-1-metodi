@@ -66,4 +66,19 @@ function [firstTime,secondErrors,thirdRAM] = solveMatrix(varargin)
     ylabel('RAM used (bytes)');
     hold on
     scatter(thirdRAM(:,1),thirdRAM(:,2),'.');
+
+    disp('valori per first time')
+    disp(min(firstTime(:,2)))
+    disp(max(firstTime(:,2)))
+    disp(sum(firstTime(:,2)))
+      
+    disp('valori per errors')
+    disp(min(secondErrors(:,2)))
+    disp(max(secondErrors(:,2)))
+    disp(sum(secondErrors(:,2)))
+      
+    disp('valori per RAM')
+    disp(min(thirdRAM(:,2)))
+    disp(max(thirdRAM(:,2)))
+    disp(sum(thirdRAM(:,2)))
 end

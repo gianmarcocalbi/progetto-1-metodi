@@ -55,7 +55,12 @@ def solve(*args):
     firstTime = sorted(firstTime,key=lambda x: (x[0],x[1]))
     secondErrors = sorted(secondErrors,key=lambda x: (x[0],x[1]))
     thirdRAM = sorted(thirdRAM,key=lambda x: (x[0],x[1]))
-        
+
+    #Print INFOS
+    print("Time: min=" , min([col[1] for col in firstTime]) , "; max=" , max([col[1] for col in firstTime]) , "; TOT=" , sum([col[1] for col in firstTime]))
+    print("Error: min=" , min([col[1] for col in secondErrors]) , "; max=" , max([col[1] for col in secondErrors]) , "; TOT=" , sum([col[1] for col in secondErrors]))
+    print("RAM usage: min=" , min([col[1] for col in thirdRAM]) , "; max=" , max([col[1] for col in thirdRAM]) , "; TOT=" , sum([col[1] for col in thirdRAM]))
+
     #Calcolo primo grafico
     print("\nPlotting results...")
     pylab.figure(1)
@@ -83,8 +88,6 @@ def solve(*args):
     pylab.show()
     
     
-    
-    
 def mainComput(matrix,firstTime,secondErrors,thirdRAM):    
     import psutil
     import numpy
@@ -92,8 +95,8 @@ def mainComput(matrix,firstTime,secondErrors,thirdRAM):
     import time
     import os
    
-    for i in range(0,len(matrix)):  
-                
+    for i in range(0,len(matrix)):
+        
         #Ottengo matrice i-esima       
         A = matrix[i]
         sizeM = numpy.shape(A)
@@ -104,6 +107,7 @@ def mainComput(matrix,firstTime,secondErrors,thirdRAM):
         process = psutil.Process(os.getpid())    
         firstRAM = process.memory_info().rss
         
+
         #Soluzione esatta del sistema
         xe = numpy.ones(sizeM);
         
@@ -118,7 +122,7 @@ def mainComput(matrix,firstTime,secondErrors,thirdRAM):
         tElapsed = te-ts
         
         #Calcolo dell'errore
-        relErr = numpy.linalg.norm(x-xe)/numpy.linalg.norm(xe)
+        relErr = numpy.linalg.norm(numpy.subtract(x,xe))/numpy.linalg.norm(xe)
         
         #Calcolo della RAM utilizzata
         process2 = psutil.Process(os.getpid())
