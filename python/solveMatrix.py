@@ -95,7 +95,7 @@ def solve(*args):
 def mainComput(matrix,firstTime,secondErrors,thirdRAM):    
     import psutil
     import numpy
-    from scikits.umfpack import spsolve
+    from scikits.umfpack import spsolve, splu
     import time
     import os
    
@@ -118,7 +118,8 @@ def mainComput(matrix,firstTime,secondErrors,thirdRAM):
         #Calcolo right-hand side
         b = A * xe
         
-        #Calcolo matrice e tempo di calcolo        
+        #Calcolo matrice e tempo di calcolo   
+        lu = splu(A)     
         x = spsolve(A, b)
         te = time.time()
         tElapsed = te-ts
