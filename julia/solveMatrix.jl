@@ -77,7 +77,28 @@ function solveMatrix(x...)
     thirdRAM = reshape(thirdRAM,numDiMatrici,2);
     thirdRAMSor = sortrows(thirdRAM,by=y->(y[1]));
     thirdRAMSor = reshape(thirdRAMSor,numDiMatrici,2);
-
+	
+	print(minimum(firstTimeSor[:,2]));
+	print("\n");
+	print(maximum(firstTimeSor[:,2]));
+	print("\n");
+	print(sum(firstTimeSor[:,2]));
+	print("_________________________________");
+	print("\n\n\n");
+	
+	print(minimum(secondErrorsSor[:,2]));
+	print("\n");
+	print(maximum(secondErrorsSor[:,2]));
+	print("\n");
+	print(sum(secondErrorsSor[:,2]));
+	print("_________________________________");
+	print("\n\n\n");
+	print(minimum(thirdRAMSor[:,2]));
+	print("\n");
+	print(maximum(thirdRAMSor[:,2]));
+	print("\n");
+	print(sum(thirdRAMSor[:,2]));
+print("_________________________________");
     return firstTimeSor, secondErrorsSor, thirdRAMSor;
 
 end
