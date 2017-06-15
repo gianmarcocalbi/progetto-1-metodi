@@ -15,21 +15,21 @@ function solveMatrix(x...)
 
     #Carico le matrici FEMLAB nel cellArray
     print("Loading data...")
-    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\one20414.mat")
+    openedMat = matread("../matrices/mat/one20414.mat")
     matrices[1] = openedMat["A"]
-    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\two367.mat")
+    openedMat = matread("../matrices/mat/two367.mat")
     matrices[2] = openedMat["A"]
-    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\three13514.mat")
+    openedMat = matread("../matrices/mat/three13514.mat")
     matrices[3] = openedMat["A"]
-    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\four85623.mat")
+    openedMat = matread("../matrices/mat/four85623.mat")
     matrices[4] = openedMat["A"]
-    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\five415.mat")
+    openedMat = matread("../matrices/mat/five415.mat")
     matrices[5] = openedMat["A"]
-    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\six12504.mat")
+    openedMat = matread("../matrices/mat/six12504.mat")
     matrices[6] = openedMat["A"]
-    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\seven29067.mat")
+    openedMat = matread("../matrices/mat/seven29067.mat")
     matrices[7] = openedMat["A"]
-    openedMat = matread("C:\\Users\\Nico\\Documents\\GitHub\\progetto-1-metodi\\matrices\\mat\\eigth42930.mat")
+    openedMat = matread("../matrices/mat/eigth42930.mat")
     matrices[8] = openedMat["A"]
 
     #Calcola quanti parametri in input ci sono
