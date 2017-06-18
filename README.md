@@ -55,7 +55,9 @@ La funzione `solveMatrix()` chiamerà la funzione `mainComput()` che si occupa d
 ## Julia Language
 Fare `cd %PATH_FOLDER_solveMatrix.jl%` nella cartella in cui è contenuto il file `solveMatrix.jl`.
 
-Chiamare la funzione `julia (p,t,s) = solveMatrix()` con questi input:
+Includere il file tramite il comando `include("solveMatrix.jl")`.
+
+Chiamare la funzione `julia> (p,t,s) = solveMatrix()` con questi input:
 - **nessuno** : vengono elaborate e risolte le 8 matrici FEMLAB.
 - **uno o più path indicanti file .mat**: vengono elaborate e risolte le matrici in input. Assicurarsi che esse siano nel formate Double Sparse Matrix.
 
