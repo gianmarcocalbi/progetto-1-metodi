@@ -39,7 +39,7 @@ function solveMatrix(x...)
     if howManyOptional>0
         inputMatrices = Array{Any}(howManyOptional)
         for ll=1 : howManyOptional
-            openedMat = matopen(x[ll])
+            openedMat = matread(x[ll])
             inputMatrices[ll] = openedMat["A"]
         end
     end
@@ -62,7 +62,7 @@ function solveMatrix(x...)
 
     #Creo matrici contenti i valori dei grafici
     #Ordino anche in modo crescento rispetto alla size
-    print("Collecting results...")
+    print("Collecting results...\n")
     firstTime = [allSizes ; allTimes];
     firstTime = reshape(firstTime,numDiMatrici,2);
     firstTimeSor = sortrows(firstTime,by=y->(y[1]))
@@ -83,7 +83,7 @@ function solveMatrix(x...)
 	print(maximum(firstTimeSor[:,2]));
 	print("\n");
 	print(sum(firstTimeSor[:,2]));
-	print("_________________________________");
+	print("\n_________________________________");
 	print("\n\n\n");
 	
 	print(minimum(secondErrorsSor[:,2]));
@@ -91,14 +91,14 @@ function solveMatrix(x...)
 	print(maximum(secondErrorsSor[:,2]));
 	print("\n");
 	print(sum(secondErrorsSor[:,2]));
-	print("_________________________________");
+	print("\n_________________________________");
 	print("\n\n\n");
 	print(minimum(thirdRAMSor[:,2]));
 	print("\n");
 	print(maximum(thirdRAMSor[:,2]));
 	print("\n");
 	print(sum(thirdRAMSor[:,2]));
-print("_________________________________");
+print("\n_________________________________");
     return firstTimeSor, secondErrorsSor, thirdRAMSor;
 
 end
